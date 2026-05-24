@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x  # debug mode
+# set -x  # debug mode
 
 clients=$(hyprctl clients -j | jq -c 'sort_by(.last_focus_time) | reverse | .[]')
 current=$(hyprctl activewindow -j | jq -r '.address')
@@ -29,10 +29,8 @@ if [ ${#addr_array[@]} -lt 2 ]; then
     exit 0
 fi
 
-# toggle between top 2
 if [[ "${addr_array[0]}" == "$current" ]]; then
-    hyprctl dispatch focuswindow address:${addr_array[1]}
+    hyprctl dispatch "hl.dsp.focus({ window = 'address:${addr_array[1]}' })"
 else
-    hyprctl dispatch focuswindow address:${addr_array[0]}
+    hyprctl dispatch "hl.dsp.focus({ window = 'address:${addr_array[0]}' })"
 fi
-

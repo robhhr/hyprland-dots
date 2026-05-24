@@ -24,6 +24,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("dunst")
   -- hl.exec_cmd("waybar")
   hl.exec_cmd("waybar -c ~/.config/hypr/waybar/config.jsonc -s ~/.config/hypr/waybar/style.css")
+  hl.exec_cmd("wlsunset -l 47.6062 -L -122.3321 -t 3300 -T 3800")
 end)
 
 -- basic look
@@ -71,6 +72,34 @@ hl.bind(mainMod .. " + L",
 
 hl.bind(mainMod .. " + O",
   hl.dsp.exec_cmd("~/.config/hypr/scripts/powermenu.sh")
+)
+
+-- app/window switcher
+hl.bind(mainMod .. " + TAB",
+    hl.dsp.exec_cmd("~/.config/hypr/scripts/cycle_last_windows.sh")
+)
+
+hl.bind("SUPER + SHIFT + TAB",
+    hl.dsp.exec_cmd("~/.config/hypr/scripts/cycle_windows_reverse.sh")
+)
+
+-- lock screen
+hl.bind(mainMod .. " + L",
+    hl.dsp.exec_cmd("hyprlock")
+)
+
+-- screenshots
+hl.bind(mainMod .. " + S",
+    hl.dsp.exec_cmd([[bash -c 'grim -g "$(slurp)" ~/Pictures/screenshot_$(date +%s).png && notify-send "📸 taken"']])
+)
+
+hl.bind(mainMod .. " + C",
+    hl.dsp.exec_cmd([[bash -c 'grim -g "$(slurp)" - | wl-copy && notify-send "📸 copied to 📋"']])
+)
+
+-- screen recording
+hl.bind("ALT + R",
+    hl.dsp.exec_cmd("~/.config/hypr/scripts/record_toggle.sh")
 )
 
 -- workspaces

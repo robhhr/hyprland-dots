@@ -28,8 +28,8 @@ fi
 # find current window index
 for i in "${!addr_array[@]}"; do
     if [[ "${addr_array[$i]}" == "$current" ]]; then
-        prev_index=$(( (i - 1) % ${#addr_array[@]} ))
-        hyprctl dispatch focuswindow address:${addr_array[$prev_index]}
+        prev_index=$(( (i - 1 + ${#addr_array[@]}) % ${#addr_array[@]} ))
+        hyprctl dispatch "hl.dsp.focus({ window = 'address:${addr_array[$prev_index]}' })"
         break
     fi
 done
