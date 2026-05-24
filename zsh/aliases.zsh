@@ -33,4 +33,6 @@ alias tdev="$HOME/.config/tmux/layouts/dev.sh"
 alias n='nvim'
 alias m='mullvad'
 alias weather="curl v2.wttr.in/${1:-Vancouver} --silent | less -S -R -#3"
+alias cc='claude'
+alias cx='codex'
 
