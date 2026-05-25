@@ -1,0 +1,5 @@
+hl.on("hyprland.start", function()
+  hl.exec_cmd("dunst")
+  hl.exec_cmd("waybar -c ~/.config/hypr/waybar/config.jsonc -s ~/.config/hypr/waybar/style.css")
+  hl.exec_cmd("wlsunset -l 47.6062 -L -122.3321 -t 3300 -T 3800")
+end)
