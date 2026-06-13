@@ -31,3 +31,30 @@ ln -sf ~/.config/tmux-themes/gruvbox-dark.conf ~/.config/tmux-themes/active.conf
 - `mkdir -p ~/.config/theme && echo "dark" > ~/.config/theme/current`
 - `chmod +x ~/bin/toggle-theme`
 
+
+#### how to configure theme switch (for future machines)
+
+1. theme state file
+`mkdir -p ~/.config/theme && echo "dark" > ~/.config/theme/current`
+
+2. alacritty symlink
+```
+ln -sf ~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml \
+       ~/.config/alacritty/active-theme.toml
+```
+
+3. tmux themes dir + symlink
+```
+mkdir -p ~/.config/tmux-themes
+ln -sf ~/.config/tmux-themes/gruvbox-dark.conf ~/.config/tmux-themes/active.conf
+```
+
+4. toggle script
+```
+mkdir -p ~/bin
+cp ~/.config/scripts/toggle-theme ~/bin/toggle-theme  # or recreate from repo
+chmod +x ~/bin/toggle-theme
+```
+
+5. make sure ~/bin is in PATH (if not already in .zshrc)
+`echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc`
