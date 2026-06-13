@@ -1,27 +1,33 @@
 *
+
+# terminal
 !/alacritty/
 !/alacritty/**
+!/tmux/
+!/tmux/**
+!/tmux-themes/
+!/tmux-themes/**
 
+# neovim
+!/nvim/
+!/nvim/**
+
+# theme
+!/theme/
+!/theme/**
+!/scripts/
+!/scripts/**
+
+# wm
 !/hypr/
 !/hypr/**
-
 !/dunst/
 !/dunst/**
-
-!/fastfetch/
-!/fastfetch/**
-
-!/gammastep/
-!/gammastep/**
-
+!/wofi/
+!/wofi/**
 !/swhkd/
 !/swhkd/**
 
-!/tmux/
-!/tmux/**
-
-!/wofi/
-!/wofi/**
-
+# shell
 !/zsh/
 !/zsh/**
