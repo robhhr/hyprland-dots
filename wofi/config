@@ -1,0 +1,10 @@
+show=drun
+prompt=Pick:
+width=500
+height=250
+allow_images=true
+image_size=22
+insensitive=true
+matching=fuzzy
+hide_scroll=false
+term=alacritty
