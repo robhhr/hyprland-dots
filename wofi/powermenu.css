@@ -1,0 +1,46 @@
+/* power menu only */
+/* absolute path required: wofi loads CSS as a data blob, so relative
+   imports resolve against the shell's cwd, not this file */
+@import url("file:///home/unicorn/.config/wofi/style.css");
+
+window {
+  font-size: 13px;
+}
+
+#outer-box {
+  margin: 0px;
+  padding: 8px;
+  border: 2px solid #d79921;
+  background-color: #1d2021;
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+}
+
+#inner-box {
+  margin: 0px;
+  border: none;
+  background-color: transparent;
+}
+
+#entry {
+  padding: 4px 6px;
+}
+
+#entry:selected {
+  background-color: #d79921;
+}
+
+#text {
+  font-size: 16px;
+  margin: 0px;
+  border: none;
+  color: #ebdbb2;
+}
+
+#text:selected {
+  color: #1d2021;
+  font-weight: bold;
+}
