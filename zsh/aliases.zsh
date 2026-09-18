@@ -4,6 +4,7 @@ alias grep='grep --color=auto'
 alias less='less -R'
 alias e='exit'
 alias lsl="lsd --tree -l"
+alias lsd="lsd -l"
 
 # paths
 alias ..='cd ..'
