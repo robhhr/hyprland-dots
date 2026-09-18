@@ -19,6 +19,14 @@ window {
   border: none;
 }
 
+#input {
+  min-height: 0px;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  font-size: 1px;
+}
+
 #inner-box {
   margin: 0px;
   border: none;
