@@ -59,8 +59,10 @@
         "󰤨"
       ]
     },
+    "interval": 2,
     "tooltip": true,
-    "tooltip-format": "{essid} {bandwidthDownBytes} ({signalStrength}%)"
+    "tooltip-format": "{essid} ({signalStrength}%)  ⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+    "on-click": "~/.config/hypr/scripts/wifi.sh"
   },
   "custom/network": {
     "format": "{}",

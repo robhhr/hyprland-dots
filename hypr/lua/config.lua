@@ -29,3 +29,17 @@ hl.config({
     disable_hyprland_guiutils_check = true,
   },
 })
+
+-- wifi menu (scripts/wifi.sh) runs wofi as a normal window, not a layer,
+-- so lua/binds.lua can close it on outside clicks; this pins it where
+-- the layer version sat and strips hyprland's decorations so wofi's own css shows
+hl.window_rule({
+  name = "wifi-menu",
+  match = { class = "^wofi$" },
+  float = true,
+  move = "monitor_w-window_w-22 48",
+  border_size = 0,
+  rounding = 0,
+  no_shadow = true,
+  stay_focused = true,
+})

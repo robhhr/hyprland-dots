@@ -85,3 +85,31 @@ hl.bind("XF86MonBrightnessDown",
   hl.dsp.exec_cmd("brightnessctl s 10%-"),
   { locked = true, repeating = true }
 )
+
+-- wifi menu (scripts/wifi.sh): close it when another window is clicked.
+-- the window rule makes it stay_focused so hovering (follow_mouse) can't steal
+-- focus; non_consuming lets the click still reach the clicked window.
+-- clicks on the bar/desktop are ignored, so the bar icon can toggle it itself
+local function under_cursor(w, c)
+  return c.x >= w.at.x and c.x < w.at.x + w.size.x
+     and c.y >= w.at.y and c.y < w.at.y + w.size.y
+end
+
+hl.bind("mouse:272", function()
+  local wins = hl.get_windows()
+  local menu
+  for _, w in ipairs(wins) do
+    if w.class == "wofi" then menu = w end
+  end
+  if not menu then return end
+  local c = hl.get_cursor_pos()
+  if under_cursor(menu, c) then return end
+  -- ponytail: menu's workspace only, other monitors' windows don't close it
+  for _, w in ipairs(wins) do
+    if w.address ~= menu.address and w.workspace and menu.workspace
+       and w.workspace.name == menu.workspace.name and under_cursor(w, c) then
+      hl.dispatch(hl.dsp.window.close({ window = "address:" .. menu.address }))
+      return
+    end
+  end
+end, { non_consuming = true })
